@@ -45,6 +45,4 @@ public class StringConsumerConfig {
           return record;
         };
     }
-
-
 }

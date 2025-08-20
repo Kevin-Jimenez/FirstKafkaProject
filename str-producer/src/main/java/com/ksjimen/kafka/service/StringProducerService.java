@@ -6,7 +6,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 public class StringProducerService {
 
     @Autowired
@@ -16,12 +15,9 @@ public class StringProducerService {
         kafkaTemplate.send("str-topic", message).whenComplete((result, ex) ->{
             if(ex != null){
                 System.out.println("Error la enviar el mensaje: "+ex.getMessage());
-                //log.error("Error la enviar el mensaje {}",ex.getMessage());
             }
             System.out.println("Mensaje enviado con exito: "+result.getProducerRecord().value());
             System.out.println("Particion: "+result.getRecordMetadata().partition()+", offset: "+result.getRecordMetadata().offset());
-            //log.info("Mensaje enviado con exito: {}",result.getProducerRecord().value());
-            //log.info("Particion: {}, offset: {}",result.getRecordMetadata().partition(), result.getRecordMetadata().offset());
         });
     }
 }

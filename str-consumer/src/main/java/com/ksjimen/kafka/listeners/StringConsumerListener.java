@@ -27,5 +27,4 @@ public class StringConsumerListener {
     public void listener3(String message){
         System.out.println("LISTENER3 ::: Recibiendo mensaje: "+message);
     }
-
 }
